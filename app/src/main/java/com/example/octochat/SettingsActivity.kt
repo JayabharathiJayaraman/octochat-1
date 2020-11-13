@@ -21,17 +21,35 @@ class SettingsActivity : AppCompatActivity() {
         changePasswordButton = findViewById(R.id.changePasswordConstraint)
         logoutConstraint = findViewById(R.id.logoutConstraint)
 
+
         navigateBackButton.setOnClickListener {
             finish()
         }
 
         changePasswordButton.setOnClickListener{
             //Toggle changePassword fragment
+            displayChangePasswordFragment()
         }
 
         logoutConstraint.setOnClickListener{
             //Logout current user
+            Log.d("!!!", "Click!")
         }
+    }
 
+    fun displayChangePasswordFragment() {
+        val changePasswordFragment = ChangePasswordFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.changePasswordContainer, changePasswordFragment, "changePasswordFragment")
+        transaction.commit()
+    }
+
+    fun removeChangePasswordFragment() {
+        val changePasswordFragment = supportFragmentManager.findFragmentByTag("changePasswordFragment")
+        if(changePasswordFragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.remove(changePasswordFragment)
+            transaction.commit()
+        }
     }
 }
