@@ -8,9 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 
 class SettingsActivity : AppCompatActivity() {
 
-    lateinit var navigateBackButton : ImageView
-    lateinit var changePasswordConstraint : ConstraintLayout
-    lateinit var logoutConstraint : ConstraintLayout
+    private lateinit var navigateBackButton : ImageView
+    private lateinit var changePasswordButton : ConstraintLayout
+    private lateinit var logoutConstraint : ConstraintLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,19 +18,19 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         navigateBackButton = findViewById(R.id.navigateBackButton)
-        changePasswordConstraint = findViewById(R.id.changePasswordConstraint)
+        changePasswordButton = findViewById(R.id.changePasswordConstraint)
         logoutConstraint = findViewById(R.id.logoutConstraint)
 
         navigateBackButton.setOnClickListener {
             finish()
         }
 
-        changePasswordConstraint.setOnClickListener{
-            Log.d("!!!", "changePasswordConstraint clicked!")
+        changePasswordButton.setOnClickListener{
+            //Toggle changePassword fragment
         }
 
         logoutConstraint.setOnClickListener{
-            Log.d("!!!", "logoutConstraint clicked!")
+            //Logout current user
         }
 
     }
